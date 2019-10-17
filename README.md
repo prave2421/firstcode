@@ -1,2 +1,1 @@
-#my app this is my app
-my second line
+#my second line
