@@ -5,7 +5,7 @@ git learning
 """
 import smtplib
 server = smtplib.SMTP('smtp.gmail.com', 587)
-
+#new line 2 added
 #Next, log in to the server
 #ne wline added
 server.login("youremailusername", "password")
