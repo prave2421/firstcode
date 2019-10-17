@@ -1,0 +1,35 @@
+df=spark.read.parquet("C:\\Users\\admin\\Desktop\\aws_new\\parquet\\*parquet*")
+8778274639
+
+import logging
+s_logger = logging.getLogger('py4j.java_gateway')
+s_logger.setLevel(logging.ERROR)
+spark_context = SparkContext() 
+
+
+from pyspark.sql import SparkSession, functions as fs
+SparkSession.builder.getOrCreate().sparkContext.setLogLevel("ERROR")
+
+Just execute this command in the spark directory:
+
+cp conf/log4j.properties.template conf/log4j.properties
+Edit log4j.properties:
+
+# Set everything to be logged to the console
+log4j.rootCategory=INFO, console
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.target=System.err
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{1}: %m%n
+
+# Settings to quiet third party logs that are too verbose
+log4j.logger.org.eclipse.jetty=WARN
+log4j.logger.org.eclipse.jetty.util.component.AbstractLifeCycle=ERROR
+log4j.logger.org.apache.spark.repl.SparkIMain$exprTyper=INFO
+log4j.logger.org.apache.spark.repl.SparkILoop$SparkILoopInterpreter=INFO
+Replace at the first line:
+
+log4j.rootCategory=INFO, console
+by:
+
+log4j.rootCategory=WARN, console
