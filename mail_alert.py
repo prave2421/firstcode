@@ -1,6 +1,8 @@
 """The first step is to create an SMTP object, each object is used for connection 
 with one server."""
-
+"""
+git learning 
+"""
 import smtplib
 server = smtplib.SMTP('smtp.gmail.com', 587)
 
